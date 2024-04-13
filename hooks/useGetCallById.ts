@@ -1,5 +1,3 @@
-"use client";
-
 import { Call, useStreamVideoClient } from "@stream-io/video-react-sdk";
 import { useEffect, useState } from "react";
 
@@ -23,6 +21,8 @@ export const useGetCallById = (id: string | string[]) => {
 
       setIsCallLoading(false);
     };
+
+    loadCall();
   }, [client, id]);
 
   return { call, isCallLoading };
