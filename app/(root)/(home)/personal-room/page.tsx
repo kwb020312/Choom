@@ -52,27 +52,27 @@ const PersonalRoom = () => {
 
   return (
     <section className="flex size-full flex-col gap-10 text-white">
-      <h1 className="text-3xl font-bold">Personal Room</h1>
+      <h1 className="text-3xl font-bold">내 정보</h1>
 
       <div className="flex w-full flex-col gap-8 xl:max-w-[900px]">
-        <Table title="Topic" description={`${user?.username}'s meeting Room`} />
-        <Table title="Meeting ID" description={meetingId!} />
-        <Table title="InviteLink" description={meetingLink} />
+        <Table title="회의정보" description={`${user?.username}의 회의실`} />
+        <Table title="회의 ID" description={meetingId!} />
+        <Table title="초대 링크" description={meetingLink} />
       </div>
       <div className="flex gap-5">
         <Button className="bg-blue-1" onClick={startRoom}>
-          Start Meeting
+          회의 시작하기
         </Button>
         <Button
           className="bg-dark-3"
           onClick={() => {
             navigator.clipboard.writeText(meetingLink);
             toast({
-              title: "Link Copied",
+              title: "링크가 복사되었습니다.",
             });
           }}
         >
-          Copy Invitation
+          링크 복사하기
         </Button>
       </div>
     </section>
