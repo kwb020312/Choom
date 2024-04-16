@@ -74,29 +74,29 @@ const MeetingTypeList = () => {
     <section className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-4">
       <HomeCard
         img="/icons/add-meeting.svg"
-        title="New Meeting"
-        description="Start an instant meeting"
+        title="새로운 회의"
+        description="새로운 회의 방을 생성합니다"
         handleClick={() => setMeetingState("isInstantMeeting")}
         className="bg-orange-1"
       />
       <HomeCard
         img="/icons/schedule.svg"
-        title="Schedule Meeting"
-        description="Plan your meeting"
+        title="회의 일정 생성"
+        description="회의 일정을 관리합니다."
         handleClick={() => setMeetingState("isScheduleMeeting")}
         className="bg-blue-1"
       />
       <HomeCard
         img="/icons/recordings.svg"
-        title="View Recordings"
-        description="Check out your recordings"
+        title="녹화 조회"
+        description="회의 중 녹화된 영상을 확인합니다."
         handleClick={() => router.push("/recordings")}
         className="bg-purple-1"
       />
       <HomeCard
         img="/icons/join-meeting.svg"
-        title="Join Meeting"
-        description="via invitation link"
+        title="회의 입장"
+        description="링크를 통해 공유된 회의에 입장합니다."
         handleClick={() => setMeetingState("isJoiningMeeting")}
         className="bg-yellow-1"
       />
@@ -105,12 +105,12 @@ const MeetingTypeList = () => {
         <MeetingModal
           isOpen={meetingState === "isScheduleMeeting"}
           onClose={() => setMeetingState(undefined)}
-          title="Create Meeting"
+          title="새로운 회의"
           handleClick={createMeeting}
         >
           <div className="flex flex-col gap-2.5">
             <label className="text-base leading-[22px] text-sky-2">
-              Add a description
+              회의에 대한 설명을 입력해주세요.
             </label>
             <Textarea
               className="border-none bg-dark-3 focus-visible:ring-0 focus-visible:ring-offset-0"
@@ -121,7 +121,7 @@ const MeetingTypeList = () => {
           </div>
           <div className="flex w-full flex-col gap-2.5">
             <label className="text-base leading-[22px] text-sky-2">
-              Select Date and Time
+              회의 일자를 선택해주세요.
             </label>
             <ReactDatePicker
               selected={values.dateTime}
@@ -139,12 +139,12 @@ const MeetingTypeList = () => {
         <MeetingModal
           isOpen={meetingState === "isScheduleMeeting"}
           onClose={() => setMeetingState(undefined)}
-          title="Meeting Created"
+          title="생성된 회의에 입장"
           className="text-center"
-          buttonText="Copy Meeting Link"
+          buttonText="회의 링크 복사"
           handleClick={() => {
             navigator.clipboard.writeText(meetingLink);
-            toast({ title: "Copied to clipboard" });
+            toast({ title: "회의 링크가 복사되었습니다." });
           }}
           image="/icons/checked.svg"
           buttonIcon="/icons/copy.svg"
@@ -153,22 +153,22 @@ const MeetingTypeList = () => {
       <MeetingModal
         isOpen={meetingState === "isInstantMeeting"}
         onClose={() => setMeetingState(undefined)}
-        title="Start an Instant Meeting"
+        title="회의를 생성합니다."
         className="text-center"
-        buttonText="Start Meeting"
+        buttonText="회의 시작하기"
         handleClick={createMeeting}
       />
 
       <MeetingModal
         isOpen={meetingState === "isJoiningMeeting"}
         onClose={() => setMeetingState(undefined)}
-        title="Type the link here"
+        title="회의 링크를 입력해주세요."
         className="text-center"
-        buttonText="Join Meeting"
+        buttonText="회의 입장"
         handleClick={() => router.push(values.link)}
       >
         <Input
-          placeholder="Meeting Link"
+          placeholder="회의 링크"
           className="border-none bg-dark-3 focus-visible:ring-0 focus-visible:ring-offset-0"
           onChange={(e) => setValues({ ...values, link: e.target.value })}
         />
