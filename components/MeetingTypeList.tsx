@@ -32,17 +32,17 @@ const MeetingTypeList = () => {
 
     try {
       if (!values.dateTime) {
-        toast({ title: "Please select a date and time" });
+        toast({ title: "회의 시간을 선택해주세요." });
         return;
       }
       const id = crypto.randomUUID();
       const call = client.call("default", id);
 
-      if (!call) throw new Error("Failed to create call");
+      if (!call) throw new Error("호출에 실패했습니다.");
 
       const startsAt =
         values.dateTime.toISOString() || new Date(Date.now()).toISOString();
-      const description = values.description || "Instant meeting";
+      const description = values.description || "임시 회의실";
 
       await call.getOrCreate({
         data: {
@@ -58,12 +58,12 @@ const MeetingTypeList = () => {
       if (!values.description) router.push(`/meeting/${call.id}`);
 
       toast({
-        title: "Meeting Created",
+        title: "회의가 생성되었습니다.",
       });
     } catch (error) {
       console.log(error);
       toast({
-        title: "Failed to create meeting",
+        title: "회의 생성에 실패했습니다.",
       });
     }
   };

@@ -32,7 +32,7 @@ const MeetingSetup = ({
 
   return (
     <div className="flex h-screen w-full flex-col items-center justify-center gap-3 text-white">
-      <h1 className="text-2xl font-bold">Setup</h1>
+      <h1 className="text-2xl font-bold">설정하기</h1>
       <VideoPreview />
       <div className="flex h-16 items-center justify-center gap-3">
         <label className="flex items-center justify-center gap-2 font-medium">
@@ -41,7 +41,7 @@ const MeetingSetup = ({
             checked={isMicCamToggledOn}
             onChange={(e) => setIsMicCamToggledOn(e.target.checked)}
           />
-          Join with mic and camera off
+          마이크, 카메라 허용
         </label>
         <DeviceSettings />
       </div>
@@ -52,7 +52,7 @@ const MeetingSetup = ({
           setIsSetupComplete(true);
         }}
       >
-        Join meeting
+        회의 입장
       </Button>
     </div>
   );
