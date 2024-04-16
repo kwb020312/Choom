@@ -81,7 +81,7 @@ const MeetingCard = ({
                 width={20}
                 height={20}
               />
-              &nbsp; Copy Link
+              &nbsp; 링크 복사
             </Button>
           </div>
         )}
