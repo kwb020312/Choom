@@ -6,6 +6,21 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
+const labelToKR = (label: string) => {
+  switch (label) {
+    case "Home":
+      return "대시보드";
+    case "Upcoming":
+      return "다가올 회의";
+    case "Previous":
+      return "이전 회의";
+    case "Recordings":
+      return "녹화된 영상";
+    case "Personal Room":
+      return "내 정보";
+  }
+};
+
 const Sidebar = () => {
   const pathName = usePathname();
   return (
@@ -24,7 +39,9 @@ const Sidebar = () => {
               )}
             >
               <Image src={imgUrl} alt={label} width={24} height={24} />
-              <p className="text-lg font-semibold max-lg:hidden">{label}</p>
+              <p className="text-lg font-semibold max-lg:hidden">
+                {labelToKR(label)}
+              </p>
             </Link>
           );
         })}
